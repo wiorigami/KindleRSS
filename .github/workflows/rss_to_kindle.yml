@@ -2,7 +2,8 @@ name: RSS to Kindle
 
 on:
   schedule:
-    - cron: '0 01 * * *'
+    # 每天北京时间早上9点运行 (UTC 01:00)
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
@@ -35,6 +36,13 @@ jobs:
         fi
 
     - name: Generate EPUB and send to Kindle
+      env:
+        # ===== SMTP / Kindle Secrets 注入 =====
+        SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+        SMTP_PORT: ${{ secrets.SMTP_PORT }}
+        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+        SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
+        KINDLE_EMAIL: ${{ secrets.KINDLE_EMAIL }}
       run: |
         python rss_and_send.py
 
