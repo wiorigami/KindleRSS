@@ -4,55 +4,6 @@
 
 将RSS订阅转换为EPUB电子书，并自动发送到Kindle设备。支持全文提取、图片嵌入、GitHub Actions自动化推送。
 
-## ✨ 功能特性
-
-- 📚 **RSS转EPUB** - 将多个RSS源合并为一本精美的EPUB电子书
-- 🔍 **全文提取** - 支持从原网页提取完整文章内容（CSS选择器/Readability）
-- 🖼️ **图片处理** - 自动下载并嵌入文章图片，支持防跨页显示
-- 📧 **Kindle推送** - 自动发送到Kindle邮箱
-- 🤖 **GitHub Actions** - 全自动定时生成和推送
-- 📖 **智能导航** - 多级目录结构，方便阅读导航
-- 🔄 **OPML转换器** - 在线工具可将OPML文件转换为项目配置格式
-
-## 🚀 快速开始
-
-### 本地使用
-
-1. **克隆仓库**
-```bash
-git clone https://github.com/ZRui-C/KindleRSS.git
-cd KindleRSS
-```
-
-2. **安装依赖**
-```bash
-pip install -r requirements.txt
-```
-
-3. **配置RSS源**
-```bash
-cp config.example.yaml config.yaml
-# 编辑 config.yaml，添加你的RSS源
-```
-
-4. **生成EPUB**
-```bash
-python main.py
-```
-
-5. **发送到Kindle**（可选）
-```bash
-# 配置邮件设置
-cp email_config.example.yaml email_config.yaml
-# 编辑 email_config.yaml
-
-# 发送最新的EPUB
-python send_to_kindle.py
-
-# 或生成并发送
-python rss_and_send.py
-```
-
 ### GitHub Actions 自动化
 
 1. **Fork本仓库**
